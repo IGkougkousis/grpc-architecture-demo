@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+service MeterUsageService {
+  rpc GetMeterUsage(Empty) returns (MeterUsage) {}
+}
+
+message Measurement {
+  string time = 1;
+  float meterusage = 2;
+}
+
+message MeterUsage {
+  repeated Measurement measurements = 1;
+}
+
+message Empty {}
