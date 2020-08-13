@@ -19,20 +19,6 @@ export class MeterusageDisplayComponent implements OnInit, AfterViewInit {
 
   public meterusage!: MeterUsage;
 
-  // public graph = {
-  //   data: [
-  //     {
-  //       x: [1, 2, 3],
-  //       y: [2, 6, 3],
-  //       type: 'scatter',
-  //       mode: 'lines+points',
-  //       marker: { color: 'red' },
-  //     },
-  //     { x: [1, 2, 3], y: [2, 5, 3], type: 'bar' },
-  //   ],
-  //   layout: { width: 640, height: 480, title: 'A Fancy Plot' },
-  // };
-
   public graph = {
     data: [{}],
     layout: { width: 840, height: 400, title: 'Meter Usage over Time' },
