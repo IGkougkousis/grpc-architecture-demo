@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,10 +13,22 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { AboutComponent } from './about/about.component';
 
+import * as PlotlyJS from 'plotly.js/dist/plotly.js';
+import { PlotlyModule } from 'angular-plotly.js';
+
+PlotlyModule.plotlyjs = PlotlyJS;
+
 @NgModule({
-  declarations: [AppComponent, HomeComponent, MeterusageDisplayComponent, AboutComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    MeterusageDisplayComponent,
+    AboutComponent,
+  ],
   imports: [
     BrowserModule,
+    CommonModule,
+    PlotlyModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
