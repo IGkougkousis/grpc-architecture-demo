@@ -1,3 +1,9 @@
-<p>app works</p>
+<mat-toolbar color="primary">
+  <span style="margin-right: 1rem;">gRPC Architecture Demo</span>
+  <button mat-button [routerLink]="['/home']">Home</button>
+  <button mat-button [routerLink]="['/meterusage']">Meter Usage</button>
+</mat-toolbar>
 
-<pre>{{ meterusage | json }}</pre>
+<div style="padding: 20px;">
+  <router-outlet></router-outlet>
+</div>

@@ -8,6 +8,8 @@ import { MeterusageDisplayComponent } from './meterusage-display/meterusage-disp
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, MeterusageDisplayComponent],
@@ -17,6 +19,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
   ],
   providers: [
     {
