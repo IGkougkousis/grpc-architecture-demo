@@ -10,9 +10,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, MeterusageDisplayComponent],
+  declarations: [AppComponent, HomeComponent, MeterusageDisplayComponent, AboutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
