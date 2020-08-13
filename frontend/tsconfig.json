@@ -9,9 +9,6 @@
   "references": [
     {
       "path": "./projects/dashboard/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/dashboard/tsconfig.spec.json"
     }
-]
+  ]
 }
