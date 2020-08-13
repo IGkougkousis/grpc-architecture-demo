@@ -33,8 +33,9 @@ class MeterUsageFromCSV(MeterUsageService):
         csv_data = get_csv_meter_usage()
 
         # convert to grpc class, that is what clients expect
-        converted = [Measurement(time=x.time, meterusage=x.meterusage)
+        converted = [Measurement(time=x['time'], meterusage=x['meterusage'])
                      for x in csv_data]
+
         meter_usage = MeterUsage(measurements=converted)
         return meter_usage
 

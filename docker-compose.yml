@@ -7,15 +7,13 @@ services:
       dockerfile: ./grpc-server/Dockerfile
       args:
         - grpc_server_port=45310
-    ports:
-      - "45310:45310"
   web-api:
     build:
       context: .
       dockerfile: ./web-api/Dockerfile
       args:
         - grpc_server_port=45310
-        - grpc_server_host=0.0.0.0
+        - grpc_server_host=grpc-server
         - flask_app=server.py
         - flask_run_port=5000
         - flask_run_host=0.0.0.0
