@@ -1,1 +1,5 @@
-<plotly-plot [data]="graph.data" [layout]="graph.layout"></plotly-plot>
+<p *ngIf="loading">Loading...</p>
+
+<div style="width: 800px; height: 450px;">
+  <canvas #canvas width="100%"></canvas>
+</div>

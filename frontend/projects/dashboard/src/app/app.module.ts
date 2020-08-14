@@ -13,11 +13,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { AboutComponent } from './about/about.component';
 
-import * as PlotlyJS from 'plotly.js/dist/plotly.js';
-import { PlotlyModule } from 'angular-plotly.js';
-
-PlotlyModule.plotlyjs = PlotlyJS;
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +23,6 @@ PlotlyModule.plotlyjs = PlotlyJS;
   imports: [
     BrowserModule,
     CommonModule,
-    PlotlyModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IDataService } from '../interfaces/data-service';
 import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { MeterUsage } from '../interfaces/meterusage';
 import { Measurement } from '../interfaces/measurement';
 
@@ -31,6 +32,6 @@ export class MockDataService implements IDataService {
       measurements: [m1, m2, m3],
     };
 
-    return of(meterusage);
+    return of(meterusage).pipe(delay(1000));
   }
 }

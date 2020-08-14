@@ -1,6 +1,5 @@
 # Build step
-FROM node:12-alpine as build
-RUN mkdir -p /app
+FROM node:14-buster as build
 WORKDIR /app
 COPY package.json /app
 RUN npm install

@@ -2,12 +2,13 @@ import {
   Component,
   OnInit,
   Inject,
+  AfterViewInit,
   ElementRef,
   ViewChild,
-  AfterViewInit,
 } from '@angular/core';
 import { IDataService } from '../../interfaces/data-service';
 import { MeterUsage } from '../../interfaces/meterusage';
+import { Chart, ChartConfiguration } from 'chart.js';
 
 @Component({
   selector: 'app-meterusage-display',
@@ -17,24 +18,51 @@ import { MeterUsage } from '../../interfaces/meterusage';
 export class MeterusageDisplayComponent implements OnInit, AfterViewInit {
   constructor(@Inject('IDataService') private data: IDataService) {}
 
-  public meterusage!: MeterUsage;
+  public readonly canvasId: string = 'chart-container';
+  public loading: boolean = false;
 
-  public graph = {
-    data: [{}],
-    layout: { width: 840, height: 400, title: 'Meter Usage over Time' },
-  };
+  @ViewChild('canvas')
+  private canvasRef!: ElementRef<HTMLCanvasElement>;
+
+  private meterusage!: MeterUsage;
+  private chart!: Chart;
+
+  private config!: ChartConfiguration;
 
   ngOnInit(): void {
+    this.loading = true;
+  }
+
+  ngAfterViewInit(): void {
     this.data.getMeterUsage().subscribe((mu) => {
       this.meterusage = mu;
-      const dataset = {
-        x: this.meterusage.measurements.map((mu) => mu.time),
-        y: this.meterusage.measurements.map((mu) => mu.meterusage),
-        type: 'scatter',
-      };
-      this.graph.data = [...this.graph.data, dataset];
+      this.loading = false;
+      this.render();
     });
   }
 
-  ngAfterViewInit() {}
+  private render(): void {
+    const canvas = this.canvasRef.nativeElement;
+    this.chart = new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: this.meterusage.measurements.map((mu) => mu.time),
+        datasets: [
+          {
+            data: this.meterusage.measurements.map((mu) => mu.meterusage),
+            label: 'Measurement',
+            borderColor: '#3e95cd',
+            fill: false,
+          },
+        ],
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Meter usage in January',
+        },
+      },
+    });
+    this.chart.render();
+  }
 }
