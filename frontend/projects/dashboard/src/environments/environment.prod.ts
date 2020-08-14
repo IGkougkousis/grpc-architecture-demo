@@ -1,6 +1,5 @@
-import { MeterUsageService } from '../app/meter-usage.service';
-
 export const environment = {
   production: true,
-  dataService: MeterUsageService,
+  webApiPort: $ENV.WEB_API_PORT,
+  webApiHost: $ENV.WEB_API_HOST,
 };

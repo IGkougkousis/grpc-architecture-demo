@@ -13,23 +13,17 @@ export class MockDataService implements IDataService {
 
   // provides mock data for local development purposes
   public getMeterUsage(): Observable<MeterUsage> {
-    const m1: Measurement = {
-      time: '2019-01-01 11:00',
-      meterusage: 55.02,
-    };
+    const measurements: Measurement[] = [];
 
-    const m2: Measurement = {
-      time: '2019-01-02 11:00',
-      meterusage: 34.78,
-    };
-
-    const m3: Measurement = {
-      time: '2019-01-03 11:00',
-      meterusage: 12.99,
-    };
+    for (let i = 1; i < 31; i++) {
+      measurements.push({
+        time: `2019-01-${i.toString().padStart(2, '0')} 09:00`,
+        meterusage: Math.floor(Math.random() * 100) / 100 + 30,
+      });
+    }
 
     const meterusage: MeterUsage = {
-      measurements: [m1, m2, m3],
+      measurements: [...measurements],
     };
 
     return of(meterusage).pipe(delay(1000));

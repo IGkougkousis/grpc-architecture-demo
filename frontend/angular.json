@@ -15,7 +15,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "outputPath": "dist/dashboard",
             "index": "projects/dashboard/src/index.html",
@@ -23,6 +23,7 @@
             "polyfills": "projects/dashboard/src/polyfills.ts",
             "tsConfig": "projects/dashboard/tsconfig.app.json",
             "aot": true,
+            "allowedCommonJsDependencies": ["chart.js"],
             "assets": [
               "projects/dashboard/src/favicon.ico",
               "projects/dashboard/src/assets"
@@ -31,7 +32,10 @@
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/dashboard/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "customWebpackConfig": {
+              "path": "custom-webpack.config.js"
+            }
           },
           "configurations": {
             "production": {
@@ -107,9 +111,7 @@
               "projects/dashboard/tsconfig.spec.json",
               "projects/dashboard/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {

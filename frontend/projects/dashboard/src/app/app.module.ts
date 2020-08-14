@@ -13,6 +13,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { AboutComponent } from './about/about.component';
 
+import { MeterUsageService } from './meter-usage.service';
+import { MockDataService } from './mock-data.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +36,7 @@ import { AboutComponent } from './about/about.component';
   providers: [
     {
       provide: 'IDataService',
-      useClass: environment.dataService,
+      useClass: environment.production ? MeterUsageService : MockDataService,
     },
   ],
   bootstrap: [AppComponent],
