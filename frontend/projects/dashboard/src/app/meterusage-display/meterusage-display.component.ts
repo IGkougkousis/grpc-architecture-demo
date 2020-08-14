@@ -27,8 +27,6 @@ export class MeterusageDisplayComponent implements OnInit, AfterViewInit {
   private meterusage!: MeterUsage;
   private chart!: Chart;
 
-  private config!: ChartConfiguration;
-
   ngOnInit(): void {
     this.loading = true;
   }
@@ -52,11 +50,24 @@ export class MeterusageDisplayComponent implements OnInit, AfterViewInit {
             data: this.meterusage.measurements.map((mu) => mu.meterusage),
             label: 'Measurement',
             borderColor: '#3e95cd',
-            fill: false,
+            fill: true,
+            pointRadius: 4,
+            pointStyle: 'rect',
           },
         ],
       },
       options: {
+        scales: {
+          xAxes: [
+            {
+              type: 'time',
+              ticks: {
+                autoSkip: true,
+                maxTicksLimit: 30,
+              },
+            },
+          ],
+        },
         title: {
           display: true,
           text: 'Meter usage in January',
