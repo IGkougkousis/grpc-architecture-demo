@@ -52,5 +52,5 @@ def serve(port):
 if __name__ == '__main__':
     port = os.environ['GRPC_SERVER_PORT']
     logging.basicConfig()
-    print(f'grpc server running on localhost:{port}')
+    print(f'grpc server running on port {port}')
     serve(port)

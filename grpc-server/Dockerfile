@@ -16,5 +16,4 @@ ENV GRPC_SERVER_PORT $grpc_server_port
 
 # Expose relevant port and run
 EXPOSE $grpc_server_port
-CMD ["python", "./server.py"]
-
+CMD ["python", "-u", "./server.py"]
