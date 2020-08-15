@@ -36,7 +36,7 @@ The code for each service is found in the folder of the same name. A brief descr
 
 More details for each service can be found in each one's README file.
 
-## Potential future improvements/excercises
+## Potential future improvements/exercises
 
 ### protos
 
