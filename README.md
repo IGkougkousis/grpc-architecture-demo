@@ -26,7 +26,7 @@ The 3-tier architecture described in the requirements document is implemented he
 
 `docker-compose` is used to handle the build process and networking between containers.
 
-The gRPC proto definitions and generated code is in `/protos`. This is used by `grpc-server` and `web-api`.
+The gRPC proto definitions and generated code are in `/protos`. This is used by `grpc-server` and `web-api`.
 
 The code for each service is found in the folder of the same name. A brief description of what each of them is:
 
