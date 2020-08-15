@@ -24,7 +24,7 @@ The 3-tier architecture described in the requirements document is implemented he
 - `web-api`
 - `frontend`
 
-`docker-compose` is used to handle the build process and networking between containers.
+`docker-compose` is used to handle the build process for the images and the networking between containers.
 
 The gRPC proto definitions and generated code are in `/protos`. This is used by `grpc-server` and `web-api`.
 
