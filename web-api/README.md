@@ -4,4 +4,5 @@ A Flask web server that uses a gRPC client to receive data from a gRPC server. T
 
 ## Remarks
 
-`client.py` expects the environment variable `GRPC_SERVER_PORT` to be set. This is currently handled by docker.
+- `client.py` expects the environment variables `GRPC_SERVER_PORT`, `GRPC_SERVER_HOST` to be set. This is currently handled by docker.
+- `server.py` is the flask app and expects the environment variables `FLASK_RUN_HOST`, `FLASK_RUN_PORT` and `FLASK_APP` to be set.
