@@ -34,7 +34,8 @@ measurement = NewType('measurement', float)
 
 def parse_raw_data(raw_data: List[Tuple[str, str]]) -> List[Tuple[time, measurement]]:
     """Parses the raw csv data. 
-    'time' is left unchanged. 'measurement' is converted to float.
+    'time' is left unchanged. 
+    'measurement' is converted to float, rounded to 4 decimal places.
     Invadid floats default to 0.0
 
     Parameters:
@@ -44,9 +45,10 @@ def parse_raw_data(raw_data: List[Tuple[str, str]]) -> List[Tuple[time, measurem
 
     # using fastnumbers.fast_float to parse floats from string
     # on failure assign 0.0
-    def to_float(x): return fast_float(x, default=0.0, nan=0.0, inf=0.0)
+    to_float = lambda x: fast_float(x, default=0.0, nan=0.0, inf=0.0)
+    to_rounded_float = lambda x: round(to_float(x), 4)
 
-    return [(x[0], to_float(x[1])) for x in raw_data]
+    return [(x[0], to_rounded_float(x[1])) for x in raw_data]
 
 
 class MeterUsageFromCSV(MeterUsageService):

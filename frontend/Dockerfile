@@ -9,7 +9,7 @@ ENV WEB_API_HOST $web_api_host
 
 WORKDIR /app
 COPY package.json /app
-RUN npm install
+RUN npm install --loglevel=error
 COPY . .
 RUN npm run build:prod
 
